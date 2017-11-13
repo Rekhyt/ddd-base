@@ -1,0 +1,25 @@
+{
+  "name": "rekhyt/ddd-base",
+  "description": "A set of base classes commonly usable in a DDD project.",
+  "type": "library",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Timo Ebel",
+      "email": "timo.ebel@gmail.com"
+    }
+  ],
+  "config": {
+    "platform": {
+      "php": "5.6"
+    }
+  },
+  "require": {
+    "php": ">=5.6"
+  },
+  "autoload": {
+    "psr-4": {
+      "Rekhyt\\DDDBase\\": "src/"
+    }
+  }
+}
