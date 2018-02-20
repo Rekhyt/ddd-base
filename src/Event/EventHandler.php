@@ -8,6 +8,8 @@
 
 namespace Rekhyt\DDDBase\Event;
 
+use Rekhyt\DDDBase\ReadModel\EventResult;
+
 interface EventHandler
 {
     /**
@@ -16,4 +18,9 @@ interface EventHandler
      * @return Event[]
      */
     public function handle(Event $event): array;
+
+    /**
+     * @return EventResult[]
+     */
+    public function getResults(): array;
 }

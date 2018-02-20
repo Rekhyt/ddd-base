@@ -8,6 +8,7 @@
 
 namespace Rekhyt\DDDBase\Event;
 
+use Rekhyt\DDDBase\ReadModel\EventResult;
 use Rekhyt\DDDBase\ValueObject\StringValue;
 
 interface EventDispatcher
@@ -38,4 +39,9 @@ interface EventDispatcher
      * @param Event $event
      */
     public function dispatch(Event $event);
+
+    /**
+     * @return EventResult[]
+     */
+    public function getResults(): array;
 }
