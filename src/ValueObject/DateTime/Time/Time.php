@@ -39,7 +39,7 @@ class Time
     /**
      * @return Hour
      */
-    public function getHour()
+    public function getHour(): Hour
     {
         return $this->hour;
     }
@@ -47,7 +47,7 @@ class Time
     /**
      * @return Minute
      */
-    public function getMinute()
+    public function getMinute(): Minute
     {
         return $this->minute;
     }
@@ -55,7 +55,7 @@ class Time
     /**
      * @return Second
      */
-    public function getSecond()
+    public function getSecond(): Second
     {
         return $this->second;
     }
@@ -63,7 +63,7 @@ class Time
     /**
      * @return Offset
      */
-    public function getOffset()
+    public function getOffset(): Offset
     {
         return $this->offset;
     }

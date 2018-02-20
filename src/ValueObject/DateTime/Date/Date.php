@@ -43,7 +43,7 @@ class Date
     /**
      * @return Day
      */
-    public function getDay()
+    public function getDay(): Day
     {
         return $this->day;
     }
@@ -51,7 +51,7 @@ class Date
     /**
      * @return Month
      */
-    public function getMonth()
+    public function getMonth(): Month
     {
         return $this->month;
     }
@@ -59,7 +59,7 @@ class Date
     /**
      * @return Year
      */
-    public function getYear()
+    public function getYear(): Year
     {
         return $this->year;
     }

@@ -15,5 +15,5 @@ interface EventHandler
      *
      * @return Event[]
      */
-    public function handle(Event $event);
+    public function handle(Event $event): array;
 }

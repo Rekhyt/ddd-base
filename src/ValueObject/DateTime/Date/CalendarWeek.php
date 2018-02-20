@@ -8,21 +8,19 @@
 
 namespace Rekhyt\DDDBase\ValueObject\DateTime\Date;
 
-use Rekhyt\DDDBase\ValueObject\IntegerValue;
-
 class CalendarWeek
 {
     /** @var WeekOfYear */
     private $week;
 
-    /** @var IntegerValue */
+    /** @var Year */
     private $year;
 
     /**
      * @param WeekOfYear   $week
-     * @param IntegerValue $year
+     * @param Year $year
      */
-    public function __construct(WeekOfYear $week, IntegerValue $year)
+    public function __construct(WeekOfYear $week, $year)
     {
         $this->week = $week;
         $this->year = $year;
@@ -31,15 +29,15 @@ class CalendarWeek
     /**
      * @return WeekOfYear
      */
-    public function getWeek()
+    public function getWeek(): WeekOfYear
     {
         return $this->week;
     }
 
     /**
-     * @return IntegerValue
+     * @return Year
      */
-    public function getYear()
+    public function getYear(): Year
     {
         return $this->year;
     }
@@ -47,7 +45,7 @@ class CalendarWeek
     /**
      * @return string
      */
-    public function __toString()
+    public function __toString(): string
     {
         $yearString = $this->year->getValue() === 0
             ? '0'

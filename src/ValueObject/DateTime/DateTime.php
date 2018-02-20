@@ -32,7 +32,7 @@ class DateTime
     /**
      * @return Date
      */
-    public function getDate()
+    public function getDate(): Date
     {
         return $this->date;
     }
@@ -40,7 +40,7 @@ class DateTime
     /**
      * @return Time
      */
-    public function getTime()
+    public function getTime(): Time
     {
         return $this->time;
     }

@@ -19,7 +19,7 @@ class StringValue
      *
      * @throws \InvalidArgumentException
      */
-    public function __construct($value, $allowEmpty = false)
+    public function __construct(string $value, bool $allowEmpty = false)
     {
         if (!$allowEmpty && '' === $value) {
             throw new \InvalidArgumentException($value);
@@ -31,7 +31,7 @@ class StringValue
     /**
      * @return string
      */
-    public function getValue()
+    public function getValue(): string
     {
         return $this->value;
     }
@@ -39,7 +39,7 @@ class StringValue
     /**
      * @return string
      */
-    public function __toString()
+    public function __toString(): string
     {
         return $this->value;
     }

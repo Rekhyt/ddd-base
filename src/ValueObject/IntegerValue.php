@@ -18,7 +18,7 @@ class IntegerValue
      * @param int|null $min
      * @param int|null $max
      */
-    public function __construct($value, $min = null, $max = null)
+    public function __construct(int $value, int $min = null, int $max = null)
     {
         $this->validateMin($value, $min);
         $this->validateMax($value, $max);
@@ -29,7 +29,7 @@ class IntegerValue
     /**
      * @return int
      */
-    public function getValue()
+    public function getValue(): int
     {
         return $this->value;
     }
@@ -38,7 +38,7 @@ class IntegerValue
      * @param int      $value
      * @param int|null $min
      */
-    private function validateMin($value, $min = null)
+    private function validateMin(int $value, int $min = null)
     {
         if (null === $min) {
             return;
@@ -53,7 +53,7 @@ class IntegerValue
      * @param int      $value
      * @param int|null $max
      */
-    private function validateMax($value, $max = null)
+    private function validateMax(int $value, int $max = null)
     {
         if (null === $max) {
             return;

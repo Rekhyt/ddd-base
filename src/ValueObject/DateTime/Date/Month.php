@@ -37,7 +37,7 @@ class Month extends Enum
     /**
      * @return string[]
      */
-    public function getEnumValues()
+    public function getEnumValues(): array
     {
         return [
             self::JANUARY,
@@ -60,7 +60,7 @@ class Month extends Enum
      *
      * @return int
      */
-    public function getNumberOfDays(Year $year)
+    public function getNumberOfDays(Year $year): int
     {
         return $this->getValue() === self::FEBRUARY
             ? ($year->isLeapYear() ? 29 : 28)

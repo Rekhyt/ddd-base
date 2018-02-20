@@ -16,7 +16,7 @@ abstract class Enum
     /**
      * @param string $value
      */
-    public function __construct($value)
+    public function __construct(string $value)
     {
         if (!in_array($value, $this->getEnumValues(), true)) {
             throw new \InvalidArgumentException(
@@ -30,12 +30,12 @@ abstract class Enum
     /**
      * @return string[]
      */
-    abstract public function getEnumValues();
+    abstract public function getEnumValues(): array;
 
     /**
      * @return string
      */
-    public function getValue()
+    public function getValue(): string
     {
         return $this->value;
     }

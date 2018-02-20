@@ -10,7 +10,7 @@ namespace Rekhyt\DDDBase\ValueObject;
 
 class PositiveIntegerValue extends IntegerValue
 {
-    public function __construct($value, $max = null)
+    public function __construct(int $value, int $max = null)
     {
         parent::__construct($value, -1, $max);
     }
