@@ -16,6 +16,8 @@ interface EventHandler
      * @param Event $event
      *
      * @return Event[]
+     *
+     * @throws HandlingEventFailedException
      */
     public function handle(Event $event): array;
 
