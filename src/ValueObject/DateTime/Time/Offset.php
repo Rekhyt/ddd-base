@@ -29,7 +29,7 @@ class Offset
     /**
      * @return OffsetHours
      */
-    public function getHours(): OffsetHours
+    public function getHours()
     {
         return $this->hours;
     }
@@ -37,7 +37,7 @@ class Offset
     /**
      * @return OffsetMinutes
      */
-    public function getMinutes(): OffsetMinutes
+    public function getMinutes()
     {
         return $this->minutes;
     }

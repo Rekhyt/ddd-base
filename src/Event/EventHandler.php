@@ -19,10 +19,10 @@ interface EventHandler
      *
      * @throws HandlingEventFailedException
      */
-    public function handle(Event $event): array;
+    public function handle(Event $event);
 
     /**
      * @return EventResult[]
      */
-    public function getResults(): array;
+    public function getResults();
 }

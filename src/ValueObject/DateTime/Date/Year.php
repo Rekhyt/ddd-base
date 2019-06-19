@@ -15,7 +15,7 @@ class Year extends PositiveIntegerValue
     /**
      * @return bool
      */
-    public function isLeapYear(): bool
+    public function isLeapYear()
     {
         return
             $this->getValue() % 400 ||

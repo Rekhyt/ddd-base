@@ -29,7 +29,7 @@ class CalendarWeek
     /**
      * @return WeekOfYear
      */
-    public function getWeek(): WeekOfYear
+    public function getWeek()
     {
         return $this->week;
     }
@@ -37,7 +37,7 @@ class CalendarWeek
     /**
      * @return Year
      */
-    public function getYear(): Year
+    public function getYear()
     {
         return $this->year;
     }
@@ -45,7 +45,7 @@ class CalendarWeek
     /**
      * @return string
      */
-    public function __toString(): string
+    public function __toString()
     {
         $yearString = $this->year->getValue() === 0
             ? '0'

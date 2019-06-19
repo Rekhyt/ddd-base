@@ -43,5 +43,5 @@ interface EventDispatcher
     /**
      * @return EventResult[]
      */
-    public function getResults(): array;
+    public function getResults();
 }

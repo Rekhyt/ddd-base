@@ -8,6 +8,8 @@
 
 namespace Rekhyt\DDDBase\Event;
 
-class HandlingEventFailedException extends \Exception
+use Exception;
+
+class HandlingEventFailedException extends Exception
 {
 }

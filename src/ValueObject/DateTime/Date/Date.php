@@ -8,6 +8,8 @@
 
 namespace Rekhyt\DDDBase\ValueObject\DateTime\Date;
 
+use InvalidArgumentException;
+
 class Date
 {
     /** @var Day */
@@ -33,7 +35,7 @@ class Date
         $maxDays = $month->getNumberOfDays($year);
 
         if ($day->getValue() > $maxDays) {
-            throw new \InvalidArgumentException(
+            throw new InvalidArgumentException(
                 "Month {$month->getValue()} in {$year->getValue()} has only {$maxDays} days. " .
                 "Passed {$day->getValue()} days."
             );
@@ -43,7 +45,7 @@ class Date
     /**
      * @return Day
      */
-    public function getDay(): Day
+    public function getDay()
     {
         return $this->day;
     }
@@ -51,7 +53,7 @@ class Date
     /**
      * @return Month
      */
-    public function getMonth(): Month
+    public function getMonth()
     {
         return $this->month;
     }
@@ -59,7 +61,7 @@ class Date
     /**
      * @return Year
      */
-    public function getYear(): Year
+    public function getYear()
     {
         return $this->year;
     }

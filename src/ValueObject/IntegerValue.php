@@ -8,6 +8,8 @@
 
 namespace Rekhyt\DDDBase\ValueObject;
 
+use InvalidArgumentException;
+
 class IntegerValue
 {
     /** @var int */
@@ -18,7 +20,7 @@ class IntegerValue
      * @param int|null $min
      * @param int|null $max
      */
-    public function __construct(int $value, int $min = null, int $max = null)
+    public function __construct($value, $min = null, $max = null)
     {
         $this->validateMin($value, $min);
         $this->validateMax($value, $max);
@@ -29,7 +31,7 @@ class IntegerValue
     /**
      * @return int
      */
-    public function getValue(): int
+    public function getValue()
     {
         return $this->value;
     }
@@ -38,14 +40,14 @@ class IntegerValue
      * @param int      $value
      * @param int|null $min
      */
-    private function validateMin(int $value, int $min = null)
+    private function validateMin($value, $min = null)
     {
         if (null === $min) {
             return;
         }
 
         if ($value < $min) {
-            throw new \InvalidArgumentException("Value must be greater than or equal to {$min}. {$value} given.");
+            throw new InvalidArgumentException("Value must be greater than or equal to {$min}. {$value} given.");
         }
     }
 
@@ -53,14 +55,14 @@ class IntegerValue
      * @param int      $value
      * @param int|null $max
      */
-    private function validateMax(int $value, int $max = null)
+    private function validateMax($value, $max = null)
     {
         if (null === $max) {
             return;
         }
 
         if ($value > $max) {
-            throw new \InvalidArgumentException("Value must be lower than or equal to {$max}. {$value} given.");
+            throw new InvalidArgumentException("Value must be lower than or equal to {$max}. {$value} given.");
         }
     }
 }

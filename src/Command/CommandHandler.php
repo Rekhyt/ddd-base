@@ -17,5 +17,5 @@ interface CommandHandler
      *
      * @return Event[]
      */
-    public function handle(Command $command): array;
+    public function handle(Command $command);
 }

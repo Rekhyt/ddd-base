@@ -8,6 +8,8 @@
 
 namespace Rekhyt\DDDBase\Event;
 
+use InvalidArgumentException;
+use Rekhyt\DDDBase\ReadModel\EventResult;
 use Rekhyt\DDDBase\ValueObject\StringValue;
 
 class EventDispatcherLocal implements EventDispatcher
@@ -15,15 +17,19 @@ class EventDispatcherLocal implements EventDispatcher
     /** @var array [string, EventHandler[]] */
     private $subscriptions;
 
+    /** @var EventResult[] */
+    private $eventResults;
+
     public function __construct()
     {
         $this->subscriptions = [];
+        $this->eventResults  = [];
     }
 
     public function subscribe(StringValue $eventName, EventHandler $eventHandler)
     {
         if (!class_exists($eventName->getValue(), true)) {
-            throw new \InvalidArgumentException(
+            throw new InvalidArgumentException(
                 "Event type not found, expecting fully-qualified class name: {$eventName}"
             );
         }
@@ -59,9 +65,20 @@ class EventDispatcherLocal implements EventDispatcher
         $resultingEvents = [];
         foreach ($this->subscriptions[$eventName] as $eventHandler) {
             /** @var EventHandler $eventHandler */
-            array_merge($resultingEvents, $eventHandler->handle($event));
+
+            try {
+                $resultingEvents    = array_merge($resultingEvents, $eventHandler->handle($event));
+                $this->eventResults = array_merge($this->eventResults, $eventHandler->getResults());
+            } catch (HandlingEventFailedException $e) {
+                error_log($e->getTraceAsString());
+            }
         }
 
         $this->publishMany($resultingEvents);
+    }
+
+    public function getResults()
+    {
+        return $this->eventResults;
     }
 }

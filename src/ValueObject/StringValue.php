@@ -8,6 +8,8 @@
 
 namespace Rekhyt\DDDBase\ValueObject;
 
+use InvalidArgumentException;
+
 class StringValue
 {
     /** @var string */
@@ -17,12 +19,12 @@ class StringValue
      * @param string $value
      * @param bool   $allowEmpty
      *
-     * @throws \InvalidArgumentException
+     * @throws InvalidArgumentException
      */
-    public function __construct(string $value, bool $allowEmpty = false)
+    public function __construct($value, $allowEmpty = false)
     {
         if (!$allowEmpty && '' === $value) {
-            throw new \InvalidArgumentException($value);
+            throw new InvalidArgumentException($value);
         }
 
         $this->value = $value;
@@ -31,7 +33,7 @@ class StringValue
     /**
      * @return string
      */
-    public function getValue(): string
+    public function getValue()
     {
         return $this->value;
     }
@@ -39,7 +41,7 @@ class StringValue
     /**
      * @return string
      */
-    public function __toString(): string
+    public function __toString()
     {
         return $this->value;
     }

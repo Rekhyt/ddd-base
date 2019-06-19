@@ -8,6 +8,7 @@
 
 namespace Rekhyt\DDDBase\ValueObject\DateTime\Date;
 
+use InvalidArgumentException;
 use Rekhyt\DDDBase\ValueObject\Enum;
 
 class Month extends Enum
@@ -28,7 +29,7 @@ class Month extends Enum
     public function __construct($value)
     {
         if ($value > 12) {
-            throw new \InvalidArgumentException('Value must not be greater than 12: ' . $value);
+            throw new InvalidArgumentException('Value must not be greater than 12: ' . $value);
         }
 
         parent::__construct($value);
@@ -37,7 +38,7 @@ class Month extends Enum
     /**
      * @return string[]
      */
-    public function getEnumValues(): array
+    public function getEnumValues()
     {
         return [
             self::JANUARY,
@@ -60,7 +61,7 @@ class Month extends Enum
      *
      * @return int
      */
-    public function getNumberOfDays(Year $year): int
+    public function getNumberOfDays(Year $year)
     {
         return $this->getValue() === self::FEBRUARY
             ? ($year->isLeapYear() ? 29 : 28)

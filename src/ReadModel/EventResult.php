@@ -23,7 +23,7 @@ class EventResult
      * @param string $eventName The name of the event the result belongs to.
      * @param mixed  $result    The result of a handled event; should be serializable.
      */
-    public function __construct(string $eventName, $result = null)
+    public function __construct($eventName, $result = null)
     {
         $this->eventName = $eventName;
         $this->result    = $result;

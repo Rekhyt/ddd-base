@@ -8,6 +8,8 @@
 
 namespace Rekhyt\DDDBase\ValueObject;
 
+use InvalidArgumentException;
+
 abstract class Enum
 {
     /** @var string */
@@ -16,10 +18,10 @@ abstract class Enum
     /**
      * @param string $value
      */
-    public function __construct(string $value)
+    public function __construct($value)
     {
         if (!in_array($value, $this->getEnumValues(), true)) {
-            throw new \InvalidArgumentException(
+            throw new InvalidArgumentException(
                 'Value must be one of "' . implode('", "', $this->getEnumValues()) . '". Given: ' . $value
             );
         }
@@ -30,12 +32,12 @@ abstract class Enum
     /**
      * @return string[]
      */
-    abstract public function getEnumValues(): array;
+    abstract public function getEnumValues();
 
     /**
      * @return string
      */
-    public function getValue(): string
+    public function getValue()
     {
         return $this->value;
     }

@@ -10,7 +10,7 @@ namespace Rekhyt\DDDBase\ReadModel;
 
 abstract class SimpleReadModel implements ReadModel
 {
-    public function toArray(): array
+    public function toArray()
     {
         return get_object_vars($this);
     }
